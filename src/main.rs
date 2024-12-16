@@ -70,7 +70,7 @@ lazy_static! {
 
 /// Santa Translator for communicating in encrypted nisse language
 fn main() {
-    let encrypted_result = process_input("Senge", true).to_string();
+    let encrypted_result = process_input("Senge er smart", true).to_string();
     println!("{encrypted_result}");
 
     let decrypted_result = process_input(&encrypted_result, false);
@@ -129,6 +129,16 @@ mod tests {
     }
 
     #[test]
+    fn process_input_encryption_multiple_words_success() {
+        assert_eq!(process_input(&"a b c", true), "d e f");
+    }
+
+    #[test]
+    fn process_input_encryption_multiple_and_special_chars_words_success() {
+        assert_eq!(process_input(&"a / b * c", true), "d / e * f");
+    }
+
+    #[test]
     fn process_input_encryption_seletion_failed() {
         assert_ne!(process_input(&"abc", false), "def");
     }
@@ -136,6 +146,16 @@ mod tests {
     #[test]
     fn process_input_decryption_lowercase_success() {
         assert_eq!(process_input(&"def", false), "abc");
+    }
+
+    #[test]
+    fn process_input_decryption_multiple_words_success() {
+        assert_eq!(process_input(&"d e f", false), "a b c");
+    }
+
+    #[test]
+    fn process_input_decryption_multiple_and_special_chars_success() {
+        assert_eq!(process_input(&"d / e * f", false), "a / b * c");
     }
 
     #[test]
@@ -164,6 +184,11 @@ mod tests {
     }
 
     #[test]
+    fn test_char_uppercase_key_wrong_encryption() {
+        assert_ne!(encrypt(&'A'), 'd');
+    }
+
+    #[test]
     fn test_char_encryption_uppercase() {
         assert_eq!(encrypt(&'A'), 'D');
     }
@@ -186,6 +211,11 @@ mod tests {
     #[test]
     fn test_char_wrong_decryption() {
         assert_ne!(decrypt(&'a'), 'a');
+    }
+
+    #[test]
+    fn test_char_uppercase_key_wrong_decryption() {
+        assert_ne!(encrypt(&'D'), 'a');
     }
 
     #[test]
