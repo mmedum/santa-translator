@@ -8,7 +8,7 @@ struct Cli {
     #[arg(short, long)]
     input: String,
 
-    /// Whether is should encrypt or decrypt
+    /// Whether is should decrypt the input
     #[arg(short, long, action)]
     decryption: bool,
 }
