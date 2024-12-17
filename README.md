@@ -13,6 +13,6 @@ Options:
   -d, --decryption     Whether is should decrypt the input
   -h, --help           Print help
 
-$santa_translator -i test
+$ santa_translator -i test
 Nisse output: whvw
 ```
