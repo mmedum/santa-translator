@@ -10,4 +10,5 @@ path = "src/main.rs"
 
 [dependencies]
 bimap = "0.6.3"
+clap = { version = "4.5.23", features = ["derive"] }
 lazy_static = "1.5.0"
