@@ -81,22 +81,22 @@ pub fn process_input(input: &str, decryption: bool) -> String {
         }
     }
 
-    return output;
+    output
 }
 
 /// If the key is found, return the corresponding value from left to right in the BiMap
 pub fn encrypt(input: &char) -> char {
     match TRANSLATIONS.get_by_left(input) {
-        Some(c) => return *c,
-        None => return *input,
+        Some(c) => *c,
+        None => *input,
     }
 }
 
 /// If the key is found, return the corresponding value from right to left in the BiMap
 pub fn decrypt(input: &char) -> char {
     match TRANSLATIONS.get_by_right(input) {
-        Some(c) => return *c,
-        None => return *input,
+        Some(c) => *c,
+        None => *input,
     }
 }
 
