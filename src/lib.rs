@@ -106,62 +106,62 @@ mod tests {
 
     #[test]
     fn process_input_encryption_lowercase_success() {
-        assert_eq!(process_input(&"abc", false), "def");
+        assert_eq!(process_input("abc", false), "def");
     }
 
     #[test]
     fn process_input_encryption_uppercase_success() {
-        assert_eq!(process_input(&"ABC", false), "DEF");
+        assert_eq!(process_input("ABC", false), "DEF");
     }
 
     #[test]
     fn process_input_encryption_mixed_success() {
-        assert_eq!(process_input(&"aBc", false), "dEf");
+        assert_eq!(process_input("aBc", false), "dEf");
     }
 
     #[test]
     fn process_input_encryption_multiple_words_success() {
-        assert_eq!(process_input(&"a b c", false), "d e f");
+        assert_eq!(process_input("a b c", false), "d e f");
     }
 
     #[test]
     fn process_input_encryption_multiple_and_special_chars_words_success() {
-        assert_eq!(process_input(&"a / b * c", false), "d / e * f");
+        assert_eq!(process_input("a / b * c", false), "d / e * f");
     }
 
     #[test]
     fn process_input_encryption_seletion_failed() {
-        assert_ne!(process_input(&"abc", true), "def");
+        assert_ne!(process_input("abc", true), "def");
     }
 
     #[test]
     fn process_input_decryption_lowercase_success() {
-        assert_eq!(process_input(&"def", true), "abc");
+        assert_eq!(process_input("def", true), "abc");
     }
 
     #[test]
     fn process_input_decryption_multiple_words_success() {
-        assert_eq!(process_input(&"d e f", true), "a b c");
+        assert_eq!(process_input("d e f", true), "a b c");
     }
 
     #[test]
     fn process_input_decryption_multiple_and_special_chars_success() {
-        assert_eq!(process_input(&"d / e * f", true), "a / b * c");
+        assert_eq!(process_input("d / e * f", true), "a / b * c");
     }
 
     #[test]
     fn process_input_decryption_uppercase_success() {
-        assert_eq!(process_input(&"DEF", true), "ABC");
+        assert_eq!(process_input("DEF", true), "ABC");
     }
 
     #[test]
     fn process_input_decryption_mixed_success() {
-        assert_eq!(process_input(&"dEf", true), "aBc");
+        assert_eq!(process_input("dEf", true), "aBc");
     }
 
     #[test]
     fn process_input_decryption_seletion_failed() {
-        assert_ne!(process_input(&"def", false), "abc");
+        assert_ne!(process_input("def", false), "abc");
     }
 
     #[test]
